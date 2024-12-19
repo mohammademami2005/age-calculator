@@ -1,61 +1,115 @@
 $(document).ready(function () {
+  setupInputValidation();
+
   $("button").click(function (event) {
-    // جلوگیری از ارسال پیش‌فرض فرم
+    // Prevent default form submission
     event.preventDefault();
-    // دریافت مقادیر از فیلدهای ورودی
+    // Get values ​​from input fields
     var day = parseInt($("#day").val(), 10);
     var month = parseInt($("#months").val(), 10);
     var year = $("#years").val();
     var errorMessage = "";
-    // اعتبارسنجی روز
+
+    // day validation
     if (isNaN(day) || day < 1 || day > 31) {
-        errorMessage += "Please enter a valid day (1-31).<br>"    }
-    // اعتبارسنجی ماه
+      $("#dayLable").css("color", "red");
+      $("#day").css("border", "2px solid red");
+      $("#dayErrorText").text("Must be a valid day");
+    }
+
+    // Month validation
     if (isNaN(month) || month < 1 || month > 12) {
-        errorMessage += "Please enter a valid month (1-12).<br>"; 
+      $("#monthLabel").css("color", "red");
+      $("#months").css("border", "2px solid red");
+      $("#monthErrorText").text("Must be a valid month");
     }
-    // اعتبارسنجی سال
+
+    // validating the year
     if (year.length !== 4 || isNaN(year)) {
-        errorMessage += "Please enter a valid year (4 digits).<br>"; 
+      $("#yearLabel").css("color", "red");
+      $("#years").css("border", "2px solid red");
+      $("#yearErrorText").text("Must be a valid year");
     }
-    // نمایش پیام‌های خطا یا ادامه
-    if (errorMessage) {
-      $("#error-message").html(errorMessage);
-    } else {
-      $("#error-message").html("ورودی‌ها معتبر هستند!");
-      // فراخوانی تابع محاسبه سن
-      ageCalculator(day, month, year);
-    }
+
+    // Calling the age calculation function
+    ageCalculator(day, month, year);
   });
-  
-  // تابع محاسبه سن
+
+  // age calculation function
   function ageCalculator(day, month, year) {
     var today = new Date();
-    var day2 = today.getDate(); // روز کنونی
-    var month2 = 1 + today.getMonth(); // ماه کنونی
-    var year2 = today.getFullYear(); // سال کنونی
-    var month3 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // تعداد روزهای هر ماه
-    
-    // اگر روز تولد بیشتر از روز کنونی باشد
+    var day2 = today.getDate(); // current day
+    var month2 = 1 + today.getMonth(); // current month
+    var year2 = today.getFullYear(); // current year
+    var month3 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // Number of days in each month
+
+    // If the birthday is greater than the current day
     if (day > day2) {
       day2 = day2 + month3[month2 - 1]; // روزهای ماه قبل را به روز کنونی اضافه می‌کند
       month2 = month2 - 1; // ماه کنونی را یک ماه کاهش می‌دهد
     }
-    
-    // اگر ماه تولد بیشتر از ماه کنونی باشد
+
+    // If the birth month is greater than the current month
     if (month > month2) {
       month2 = month2 + 12; // 12 ماه به ماه کنونی اضافه می‌کند
       year2 = year2 - 1; // سال کنونی را یک سال کاهش می‌دهد
     }
-    
-    // محاسبه سن
+
+    // Calculate the age
     var Day = day2 - day;
     var Month = month2 - month;
     var Year = year2 - year;
-    
-    // نمایش سن محاسبه شده
+
+    // Display the calculated age
     $("#dayShow").text(Day);
     $("#monthsShow").text(Month);
     $("#yearsShow").text(Year);
+  }
+
+  function setupInputValidation() {
+    $("input")
+      .on("mouseenter", function () {
+        $(this).css("border", "2px solid hsl(259, 100%, 65%)");
+      })
+      .on("mouseleave", function () {
+        $(this).css("border", "");
+      })
+      .on("input", function () {
+        // Validate day input
+        var day = parseInt($("#day").val(), 10);
+        if (isNaN(day) || day < 1 || day > 31) {
+          $("#dayLabel").css("color", "red");
+          $("#day").css("border", "2px solid red");
+          $("#dayErrorText").text("Must be a valid day");
+        } else {
+          $("#dayLable").css("color", "green");
+          $("#day").css("border", "");
+          $("#dayErrorText").text("");
+        }
+
+        // Validate month input
+        var month = parseInt($("#months").val(), 10);
+        if (isNaN(month) || month < 1 || month > 12) {
+          $("#monthLabel").css("color", "red");
+          $("#months").css("border", "2px solid red");
+          $("#monthErrorText").text("Must be a valid month");
+        } else {
+          $("#monthLabel").css("color", "green");
+          $("#months").css("border", "");
+          $("#monthErrorText").text("");
+        }
+
+        // Validate year input
+        var year = $("#years").val();
+        if (year.length !== 4 || isNaN(year)) {
+          $("#yearLabel").css("color", "red");
+          $("#years").css("border", "2px solid red");
+          $("#yearErrorText").text("Must be a valid year");
+        } else {
+          $("#yearLabel").css("color", "green");
+          $("#years").css("border", "");
+          $("#yearErrorText").text("");
+        }
+      });
   }
 });

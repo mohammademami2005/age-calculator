@@ -1,0 +1,98 @@
+$White: hsl(0, 0%, 100%);
+$Offwhite: hsl(0, 0%, 94%);
+$Lightgrey: hsl(0, 0%, 86%);
+$Smokeygrey: hsl(0, 1%, 44%);
+$Offblack: hsl(0, 0%, 8%);
+$Purple: hsl(259, 100%, 65%);
+$LightRed: hsl(0, 100%, 67%);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  .container-fluid {
+    justify-content: center;
+    display: grid;
+    align-items: center;
+    height: 100vh;
+    background-color: $Lightgrey;
+    .row {
+      background-color: $White;
+      width: 60vw;
+      height: 60vh;
+      border-radius: 5px 5px 100px 5px;
+      padding: 4%;
+
+      form {
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+        .i-group {
+          width: 28%;
+          display: flex;
+          flex-direction: column;
+          padding-right: 5%;
+
+          input {
+            text-align: center;
+            font-size: 32px;
+            border-radius: 5px;
+            border-color: $Lightgrey;
+            // mask-border-outset: unset;
+          }
+
+          label {
+            color: $Smokeygrey;
+          }
+        }
+        button {
+          background-color: $Purple;
+          border: 0px;
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: 4%;
+          // margin-bottom: 8%;
+        }
+        button::before {
+          content: "";
+          width: 45vw;
+          height: 1px;
+          position: absolute;
+          right: 110%;
+          bottom: 50%;
+          top: 50%;
+          background-color: $Lightgrey;
+        }
+        button:hover {
+          background-color: $Offblack;
+        }
+      }
+      div.col-lg-12 {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        p {
+          font-size: 32px;
+          span {
+            color: $Purple;
+            font-size: 40px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+#dayErrorText,
+#monthErrorText,
+#yearErrorText {
+  color: $LightRed;
+  font-size: 12px;
+}

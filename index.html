@@ -20,17 +20,30 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style/style.css" />
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="row">
         <form action="" class="col-lg-12">
-          <input type="text" name="Age" id="day"  placeholder="DD"/>
-          <input type="text" name="Age" id="months"  placeholder="MM"/>
-          <input type="text" name="Age" id="years"  placeholder="YYYY"/>
-          <button>
-            <img src="assets/images/icon-arrow.svg" alt="">
+          <div class="i-group">
+            <label for="day" id="dayLable">Day</label>
+            <input type="text" name="Age" id="day" placeholder="DD" />
+            <span id="dayErrorText"></span>
+          </div>
+          <div class="i-group">
+            <label for="months" id="monthLabel">Month</label>
+            <input type="text" name="Age" id="months" placeholder="MM" />
+            <span id="monthErrorText"></span>
+          </div>
+          <div class="i-group">
+            <label for="years" id="yearLabel">Year</label>
+            <input type="text" name="Age" id="years" placeholder="YYYY" />
+            <span id="yearErrorText"></span>
+          </div>
+          <button class="col-lg-2">
+            <img src="assets/images/icon-arrow.svg" alt="" />
           </button>
         </form>
         <div class="col-lg-12">
@@ -38,17 +51,18 @@
           <p><span id="monthsShow"> -- </span>months</p>
           <p><span id="yearsShow"> -- </span>years</p>
         </div>
+        <div class="col-lg-12">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="https://github.com/mohammademami2005">MohammadEmami</a>.
+        </div>
       </div>
     </div>
-    <p id="error-message"></p>
-    <!-- Day  Month  Year  --  --   -->
 
-    <!-- <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div> -->
+
+
+
 
     <!-- scripts  -->
     <script

@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body .container-fluid {
+  justify-content: center;
+  display: grid;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(0, 0%, 86%);
+}
+body .container-fluid .row {
+  background-color: hsl(0, 0%, 100%);
+  width: 60vw;
+  height: 60vh;
+  border-radius: 5px 5px 100px 5px;
+  padding: 4%;
+}
+body .container-fluid .row form {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+body .container-fluid .row form .i-group {
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 5%;
+}
+body .container-fluid .row form .i-group input {
+  text-align: center;
+  font-size: 32px;
+  border-radius: 5px;
+  border-color: hsl(0, 0%, 86%);
+}
+body .container-fluid .row form .i-group label {
+  color: hsl(0, 1%, 44%);
+}
+body .container-fluid .row form button {
+  background-color: hsl(259, 100%, 65%);
+  border: 0px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: 4%;
+}
+body .container-fluid .row form button::before {
+  content: "";
+  width: 45vw;
+  height: 1px;
+  position: absolute;
+  right: 110%;
+  bottom: 50%;
+  top: 50%;
+  background-color: hsl(0, 0%, 86%);
+}
+body .container-fluid .row form button:hover {
+  background-color: hsl(0, 0%, 8%);
+}
+body .container-fluid .row div.col-lg-12 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+body .container-fluid .row div.col-lg-12 p {
+  font-size: 32px;
+}
+body .container-fluid .row div.col-lg-12 p span {
+  color: hsl(259, 100%, 65%);
+  font-size: 40px;
+  font-weight: 600;
+}
+
+#dayErrorText,
+#monthErrorText,
+#yearErrorText {
+  color: hsl(0, 100%, 67%);
+  font-size: 12px;
+}/*# sourceMappingURL=style.css.map */
