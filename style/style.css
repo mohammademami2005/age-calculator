@@ -22,7 +22,6 @@ body .container-fluid {
 body .container-fluid .row {
   background-color: hsl(0, 0%, 100%);
   width: 60vw;
-  height: 60vh;
   border-radius: 5px 5px 100px 5px;
   padding: 4%;
 }
@@ -88,4 +87,66 @@ body .container-fluid .row div.col-lg-12 p span {
 #yearErrorText {
   color: hsl(0, 100%, 67%);
   font-size: 12px;
+}
+@media only screen and (max-width: 425px) {
+  #dayErrorText,
+  #monthErrorText,
+  #yearErrorText {
+    font-size: 6px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  body .container-fluid {
+    width: 100vw;
+    overflow: hidden;
+  }
+  body .container-fluid .row {
+    width: clamp(300px, 80vw, 425px);
+  }
+  body .container-fluid .row form .i-group {
+    width: 33%;
+  }
+  body .container-fluid .row form .i-group input {
+    font-size: 24px;
+  }
+  body .container-fluid .row form button {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    right: 50%;
+    left: 40%;
+    top: 5%;
+  }
+  body .container-fluid .row form button::before {
+    content: "";
+    width: 45vw;
+    height: 1px;
+    position: absolute;
+    right: 110%;
+    bottom: 50%;
+    top: 50%;
+    background-color: hsl(0, 0%, 86%);
+  }
+  body .container-fluid .row form button::after {
+    content: "";
+    width: 45vw;
+    height: 1px;
+    position: absolute;
+    left: 110%;
+    bottom: 50%;
+    top: 50%;
+    background-color: hsl(0, 0%, 86%);
+  }
+  body .container-fluid .row div.col-lg-12 p {
+    font-size: 32px;
+  }
+  body .container-fluid .row div.col-lg-12 p span {
+    color: hsl(259, 100%, 65%);
+    font-size: 40px;
+    font-weight: 600;
+  }
+  body .container-fluid .row #dsc {
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=style.css.map */
