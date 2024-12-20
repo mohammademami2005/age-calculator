@@ -98,7 +98,7 @@ body {
 #yearErrorText {
   color: $LightRed;
   font-size: 12px;
-  @media only screen and (max-width: 425px){
+  @media only screen and (max-width: 425px) {
     font-size: 6px;
   }
 }
@@ -111,57 +111,55 @@ body {
       overflow: hidden;
       .row {
         width: clamp(300px, 80vw, 425px);
-       form{
-        .i-group{
-          width:33%;
-          input{
-            font-size: 24px;
+        form {
+          .i-group {
+            width: 33%;
+            input {
+              font-size: 24px;
+            }
+          }
+          button {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            right: 50%;
+            left: 40%;
+            top: 5%;
+          }
+          button::before {
+            content: "";
+            width: 45vw;
+            height: 1px;
+            position: absolute;
+            right: 110%;
+            bottom: 50%;
+            top: 50%;
+            background-color: $Lightgrey;
+          }
+          button::after {
+            content: "";
+            width: 45vw;
+            height: 1px;
+            position: absolute;
+            left: 110%;
+            bottom: 50%;
+            top: 50%;
+            background-color: $Lightgrey;
           }
         }
-        button{
-          width: 60px;
-          height: 60px;
-          position: relative;
-        right: 50%;
-        left: 40%;
-        top: 5%;
-        }
-        button::before {
-          content: "";
-          width: 45vw;
-          height: 1px;
-          position: absolute;
-          right: 110%;
-          bottom: 50%;
-          top: 50%;
-          background-color: $Lightgrey;
-        }
-        button::after {
-          content: "";
-          width: 45vw;
-          height: 1px;
-          position: absolute;
-          left: 110%;
-          bottom: 50%;
-          top: 50%;
-          background-color: $Lightgrey;
-        }
-       }
-       div.col-lg-12 {
-
-        p {
-          font-size: 32px;
-          span {
-            color: $Purple;
-            font-size: 40px;
-            font-weight: 600;
+        div.col-lg-12 {
+          p {
+            font-size: 32px;
+            span {
+              color: $Purple;
+              font-size: 40px;
+              font-weight: 600;
+            }
           }
         }
-      }
-      #dsc{
-        font-size: 16px;
-
-      }
+        #dsc {
+          font-size: 16px;
+        }
       }
     }
   }

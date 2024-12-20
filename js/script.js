@@ -34,7 +34,6 @@ $(document).ready(function () {
     // Calling the age calculation function
     ageCalculator(day, month, year);
   });
-
   // age calculation function
   function ageCalculator(day, month, year) {
     var today = new Date();
